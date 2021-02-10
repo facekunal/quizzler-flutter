@@ -31,6 +31,9 @@ class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
 
   void checkAnswer(bool userSelectedAnswer) {
+    if(quizBrain.isQuizEnded) {
+      return;
+    }
     setState(() {
       if (quizBrain.getCorrectAnswer() == userSelectedAnswer) {
         scoreKeeper.add(Icon(
